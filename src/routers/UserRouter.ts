@@ -14,11 +14,11 @@ class UserRouter {
     this.putRoutes();
     this.deleteRoutes();
   }
-  getRoutes() {
+  getRoutes() {}
+
+  postRoutes() {
     this.router.post('/signup', UserValidators.signup(), UserController.signup);
   }
-
-  postRoutes() {}
 
   patchRoutes() {}
 

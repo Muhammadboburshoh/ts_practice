@@ -5,14 +5,12 @@ export class UserValidators {
     return [
       body('name', 'Name is required').isString(),
       body('email', 'Email is required').isEmail(),
-      body('password', 'Password is required')
-        .isLength({ min: 5 })
-        .custom((value, { req }) => {
-          if (req.body.email) return true;
-          else {
-            throw new Error('Email is not available for validation');
-          }
-        })
+      body('phone', 'Phone number is required'),
+      body('password', 'Password is required').isAlphanumeric()
+        .isLength({ min: 5, max: 25})
+        .withMessage('Min 6 and max 25'),
+      body('type', 'User role type is required'),
+      body('status', 'User status is required'),
     ];
   }
 }
